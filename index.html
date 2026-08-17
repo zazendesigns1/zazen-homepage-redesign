@@ -41,7 +41,7 @@
   .hero video.hero-bg{width:100%;height:100%;object-fit:cover;display:block;}
   .hero::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.35) 65%, rgba(0,0,0,0.65) 100%);
+    background:linear-gradient(180deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.82) 100%);
   }
   .hero-copy{position:absolute;left:0;right:0;top:38%;text-align:center;color:#fff;z-index:10;padding:0 24px;}
   .hero-copy h1{font-size:48px;color:#fff;margin-bottom:14px;}
@@ -62,8 +62,8 @@
   @media (min-width:1024px){
     .card-row{grid-template-columns:repeat(4, 1fr);} /* laptop */
   }
-  @media (min-width:1440px){
-    .card-row{grid-template-columns:repeat(5, 1fr);} /* above laptop */
+  @media (min-width:1800px){
+    .card-row{grid-template-columns:repeat(5, 1fr);} /* wide desktop — delayed so 4-across holds longer */
   }
   .p-card{width:100%;}
   .p-card-img{
@@ -74,8 +74,22 @@
   .p-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;}
   .p-card:hover .p-card-img img{transform:scale(1.04);}
   .p-card-img .ph-icon{opacity:0.35;font-size:13px;font-weight:600;color:#fff;letter-spacing:0.03em;text-align:center;padding:0 20px;}
-  .p-tag{position:absolute;top:12px;left:12px;background:#141414;color:#fff;font-size:11px;font-weight:700;padding:5px 10px;border-radius:999px;display:flex;align-items:center;gap:4px;z-index:2;}
-  .p-heart{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;font-size:14px;z-index:2;}
+  .p-tag{
+    position:absolute;top:12px;left:12px;z-index:2;
+    background:rgba(255,255,255,0.22);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.4);
+    color:#fff;font-size:12.5px;font-weight:600;padding:7px 14px 7px 12px;border-radius:999px;
+    display:flex;align-items:center;gap:5px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12);
+  }
+  .p-tag .spark{font-size:12px;line-height:1;}
+  .p-heart{
+    position:absolute;top:12px;right:12px;z-index:2;
+    width:22px;height:22px;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:22px;line-height:1;
+    filter:drop-shadow(0 1px 3px rgba(0,0,0,0.45));
+  }
   .p-card h3{font-size:15px;font-weight:600;margin-bottom:4px;}
   .p-meta{font-size:13.5px;color:var(--ink-soft);margin-bottom:2px;}
   .p-meta .star{color:var(--ink);font-weight:600;}
@@ -116,8 +130,8 @@
     </div>
   </nav>
   <div class="hero-copy">
-    <h1>Websites people actually stay on</h1>
-    <p>Modern design. Fast builds. No bloated templates, no bloated invoices.</p>
+    <h1>Love the site you end up with</h1>
+    <p>Client-first design. Real code, not templates. Fast turnarounds. No bloated invoices.</p>
   </div>
 </div>
 
@@ -135,21 +149,21 @@
     { name:"Steel Rising", rating:5.0, beds:"Industrial · Custom build", price:"5-week turnaround", save:"~$800 less than agency rate", tag:"Featured", img:"assets/steel-rising.webp", link:"https://steelrising.us/" },
     { name:"Adtech Motors", rating:4.8, beds:"Automotive · Custom build", price:"6-week turnaround", save:null, tag:"Featured", img:"assets/adtech-motors.webp", link:"https://adtechmotors.com/" },
     { name:"Packeasy Rentals", rating:5.0, beds:"Local SEO + Stripe checkout", price:"WordPress + Next.js build", save:"~$1,200 less than agency rate", tag:"Featured", img:"assets/packeasy-rentals.webp", link:"https://packeasyrentals.com/" },
-    { name:"Site for a Real Estate Agent", rating:4.8, beds:"Custom build", price:"5-week turnaround", save:null, tag:null },
-    { name:"Site for a Law Firm", rating:5.0, beds:"WordPress build", price:"6-week turnaround", save:"~$800 less than agency rate", tag:null },
-    { name:"Site for a Med Spa", rating:4.8, beds:"Custom build", price:"5-week turnaround", save:null, tag:null },
-    { name:"Booking Platform for a Detailer", rating:5.0, beds:"Custom web app", price:"Dynamic pricing tool", save:"~$2,400 less than agency rate", tag:"Luxury" },
-    { name:"Storefront for a Boutique", rating:"New", beds:"Shopify build", price:"3-week turnaround", save:null, tag:null },
-    { name:"Quote Tool for a Concrete Co.", rating:4.9, beds:"Custom web app", price:"Pricing calculator", save:null, tag:null },
-    { name:"Portal for a Property Manager", rating:"New", beds:"Custom web app", price:"Client login system", save:"~$1,900 less than agency rate", tag:null },
-    { name:"Site for a Nonprofit", rating:5.0, beds:"WordPress build", price:"4-week turnaround", save:"~$650 less than agency rate", tag:"Luxury" },
-    { name:"Site for a Landscaper", rating:4.8, beds:"WordPress build", price:"4-week turnaround", save:null, tag:null },
-    { name:"Site for a Dental Practice", rating:5.0, beds:"Custom build", price:"5-week turnaround", save:"~$700 less than agency rate", tag:"Luxury" },
-    { name:"Storefront for a Boat Dealer", rating:4.7, beds:"WooCommerce + SEO", price:"Local SEO retainer", save:null, tag:null },
-    { name:"Site for a Roofing Company", rating:4.9, beds:"WordPress build", price:"4-week turnaround", save:"~$550 less than agency rate", tag:null },
-    { name:"Booking Tool for a Charter Co.", rating:"New", beds:"Custom web app", price:"Dynamic pricing tool", save:null, tag:"Luxury" },
-    { name:"Site for a Veterinary Clinic", rating:5.0, beds:"Custom build", price:"5-week turnaround", save:"~$600 less than agency rate", tag:null },
-    { name:"Storefront for a Furniture Co.", rating:4.8, beds:"Shopify build", price:"3-week turnaround", save:null, tag:null },
+    { name:"Greeson's Fencing", rating:4.9, beds:"Fencing · WordPress build", price:"4-week turnaround", save:null, tag:null, img:"assets/greesons-fencing.webp", link:"https://greesonsfencing.com/" },
+    { name:"Benjamin's Mobile Detailing", rating:5.0, beds:"Auto detailing · Custom build", price:"3-week turnaround", save:null, tag:null, img:"assets/benjamins-mobile-detailing.webp", link:"https://benjaminsmobiledetailing.com/" },
+    { name:"Dinosaw", rating:5.0, beds:"E-commerce · Tooling catalog", price:"6-week turnaround", save:"~$900 less than agency rate", tag:null, img:"assets/dinosaw.webp", link:"https://dinosaw.com/" },
+    { name:"First Construction Corp", rating:4.8, beds:"Roofing · WordPress build", price:"4-week turnaround", save:null, tag:null, img:"assets/first-construction-corp.webp", link:"https://first.zazendesigns.website/" },
+    { name:"Custom Booking Application", rating:"New", beds:"Next.js · Booking + Google Sheets", price:"Custom web app", save:null, tag:null, img:"assets/custom-booking-application.webp", link:"https://detailing-form.vercel.app/" },
+    { name:"H&H Construction", rating:5.0, beds:"Remodeling · WordPress build", price:"5-week turnaround", save:"~$700 less than agency rate", tag:null, img:"assets/hh-construction.webp", link:"https://hhremodelconstruction.com/" },
+    { name:"Altamont PT", rating:5.0, beds:"Physical therapy · Custom build", price:"5-week turnaround", save:null, tag:null, img:"assets/altamont-pt.webp", link:"https://altamontphysicaltherapy.com/" },
+    { name:"Total Wireless Data", rating:4.8, beds:"B2B wireless hardware · Catalog build", price:"5-week turnaround", save:"~$650 less than agency rate", tag:null, img:"assets/total-wireless-data.webp", link:"https://totalwirelessdata.com/" },
+    { name:"Garage Door Resources", rating:4.9, beds:"Garage doors · WordPress build", price:"4-week turnaround", save:null, tag:null, img:"assets/garage-door-resources.webp", link:"https://garagedoorresources.com/" },
+    { name:"Holistica Wellness", rating:5.0, beds:"Wellness · Custom build", price:"4-week turnaround", save:"~$600 less than agency rate", tag:null, img:"assets/holistica-wellness.webp", link:"https://holisticabydiana.com/" },
+    { name:"Souzou Cam", rating:"New", beds:"B2B field service app", price:"$49/mo team plan", save:null, tag:null, img:"assets/souzou-cam.webp", link:"https://play.google.com/store/apps/details?id=work.sitesnap.app" },
+    { name:"Robles Concrete", rating:4.9, beds:"Concrete + epoxy flooring · WordPress build", price:"4-week turnaround", save:null, tag:null, img:"assets/robles-concrete.webp", link:"https://roblesconcreteservices.com/" },
+    { name:"Robles Concrete — Pricing Calculator", rating:"New", beds:"React/Next.js · Quote automation", price:"Custom web app", save:null, tag:null, img:"assets/robles-concrete-pricing-calculator.webp" },
+    { name:"Hunter Tile & Construction", rating:5.0, beds:"Tiling · WordPress + Local SEO", price:"#1 for \"tiling contractor OKC\"", save:null, tag:null, img:"assets/hunter-tile-construction.webp", link:"https://huntertileconstruction.com/" },
+    { name:"Tattwic Timetable App", rating:"New", beds:"Mobile app · Wellness/spiritual tech", price:"iOS + Android", save:null, tag:null, img:"assets/tattwic-timetable-app.webp", link:"https://play.google.com/store/apps/details?id=com.zazendesigns.tattwapro" },
   ];
 
   const gradients = [
@@ -176,7 +190,7 @@
       const card = `
         <div class="p-card-img" style="${p.img ? '' : `background:${gradients[(i+gradOffset)%gradients.length]}`}">
           ${media}
-          ${p.tag ? `<div class="p-tag">✦ ${p.tag}</div>` : ''}
+          ${p.tag ? `<div class="p-tag"><span class="spark">✦</span> ${p.tag}</div>` : ''}
           <div class="p-heart">♡</div>
         </div>
         <h3>${p.name}</h3>
