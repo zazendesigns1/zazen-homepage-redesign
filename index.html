@@ -6,7 +6,7 @@
 <title>Zazen Designs | Homepage Starting Point</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..800&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#141414;
@@ -48,22 +48,22 @@
   .hero-copy p{font-size:16px;font-weight:500;opacity:0.9;margin:0;}
 
   /* Rows */
-  .row-section{padding:44px 0 8px;}
+  .row-section{padding-top:44px;padding-bottom:8px;}
   .row-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-  .row-head h2{font-size:21px;font-weight:700;}
+  .row-head h2{font-family:'Instrument Sans',sans-serif;font-weight:550;font-size:16px;line-height:20px;}
   .card-row{
     display:grid;
-    grid-template-columns:repeat(2, 1fr);
+    grid-template-columns:repeat(1, 1fr); /* phone: one box per row */
     gap:20px;
   }
-  @media (min-width:700px){
-    .card-row{grid-template-columns:repeat(3, 1fr);}
+  @media (min-width:640px){
+    .card-row{grid-template-columns:repeat(2, 1fr);} /* small tablet */
   }
-  @media (min-width:1024px){
-    .card-row{grid-template-columns:repeat(4, 1fr);} /* laptop */
+  @media (min-width:900px){
+    .card-row{grid-template-columns:repeat(3, 1fr);} /* iPad */
   }
-  @media (min-width:1800px){
-    .card-row{grid-template-columns:repeat(5, 1fr);} /* wide desktop — delayed so 4-across holds longer */
+  @media (min-width:1280px){
+    .card-row{grid-template-columns:repeat(5, 1fr);} /* desktop: five across */
   }
   .p-card{width:100%;}
   .p-card-img{
@@ -87,9 +87,10 @@
   .p-heart{
     position:absolute;top:12px;right:12px;z-index:2;
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;
-    color:#fff;font-size:22px;line-height:1;
+    color:#fff;
     filter:drop-shadow(0 1px 3px rgba(0,0,0,0.45));
   }
+  .p-heart svg{width:20px;height:20px;display:block;}
   .p-card h3{font-size:15px;font-weight:600;margin-bottom:4px;}
   .p-meta{font-size:13.5px;color:var(--ink-soft);margin-bottom:2px;}
   .p-meta .star{color:var(--ink);font-weight:600;}
@@ -191,7 +192,7 @@
         <div class="p-card-img" style="${p.img ? '' : `background:${gradients[(i+gradOffset)%gradients.length]}`}">
           ${media}
           ${p.tag ? `<div class="p-tag"><span class="spark">✦</span> ${p.tag}</div>` : ''}
-          <div class="p-heart">♡</div>
+          <div class="p-heart"><svg viewBox="0 0 512 512" fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"><path d="M256.1 128.5C226.9 42.9 94 53 94 165.6 94 245.9 175.6 300.4 256.1 384 336.6 300.4 418.2 245.9 418.2 165.6 418.2 53 285.3 42.9 256.1 128.5Z"/></svg></div>
         </div>
         <h3>${p.name}</h3>
         <div class="p-meta"><span class="star">${starOrNew(p.rating)}</span> &nbsp;${p.beds}</div>
