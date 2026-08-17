@@ -111,32 +111,32 @@
   .show-all-btn:hover{background:var(--ink);color:#fff;}
 
   /* Reviews */
-  .review-section{padding-top:56px;padding-bottom:16px;}
-  .review-head{margin-bottom:28px;}
+  .review-section{padding-top:64px;padding-bottom:24px;}
+  .review-head{margin-bottom:40px;}
   .review-head h2{font-family:'Instrument Sans',sans-serif;font-weight:550;font-size:28px;line-height:1.2;letter-spacing:-0.02em;margin-bottom:8px;}
   .review-head p{font-size:15px;color:var(--ink-soft);margin:0;}
-  .review-grid{display:grid;grid-template-columns:1fr;gap:36px 48px;}
+  .review-grid{display:grid;grid-template-columns:1fr;gap:56px 96px;}
   @media (min-width:768px){ .review-grid{grid-template-columns:1fr 1fr;} }
-  .review-card{}
-  .review-top{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .review-card{max-width:460px;}
+  .review-top{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
   .review-avatar{
-    width:44px;height:44px;border-radius:50%;flex:none;
+    width:64px;height:64px;border-radius:50%;flex:none;
     display:flex;align-items:center;justify-content:center;
-    color:#fff;font-weight:600;font-size:15px;
+    color:#fff;font-weight:600;font-size:19px;
   }
-  .review-name{font-size:15px;font-weight:600;color:var(--ink);}
-  .review-subtext{font-size:13px;color:var(--ink-soft);}
-  .review-stars-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:13.5px;color:var(--ink-soft);}
+  .review-name{font-size:17px;font-weight:700;color:var(--ink);}
+  .review-subtext{font-size:13.5px;color:var(--ink-soft);margin-top:1px;}
+  .review-stars-row{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-size:13.5px;color:var(--ink-soft);}
   .review-stars{color:#E8A93A;letter-spacing:1px;font-size:14px;}
-  .review-text{font-size:14.5px;line-height:1.55;color:var(--ink);margin:0;}
+  .review-text{font-size:15px;line-height:1.6;color:var(--ink);margin:0;}
   .review-text.is-clamped{
     display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
   }
   .review-more-btn{
-    background:none;border:none;padding:0;margin-top:6px;
+    background:none;border:none;padding:0;margin-top:10px;
     font-size:14px;font-weight:600;color:var(--ink);text-decoration:underline;
   }
-  .review-show-all-row{display:flex;justify-content:flex-start;margin-top:36px;}
+  .review-show-all-row{display:flex;justify-content:flex-start;margin-top:48px;}
   .review-show-all-btn{
     background:var(--bg-dim);border:none;color:var(--ink);
     border-radius:999px;padding:14px 26px;font-size:14.5px;font-weight:600;
