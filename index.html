@@ -110,6 +110,40 @@
   }
   .show-all-btn:hover{background:var(--ink);color:#fff;}
 
+  /* Reviews */
+  .review-section{padding-top:56px;padding-bottom:16px;}
+  .review-head{margin-bottom:28px;}
+  .review-head h2{font-family:'Instrument Sans',sans-serif;font-weight:550;font-size:28px;line-height:1.2;letter-spacing:-0.02em;margin-bottom:8px;}
+  .review-head p{font-size:15px;color:var(--ink-soft);margin:0;}
+  .review-grid{display:grid;grid-template-columns:1fr;gap:36px 48px;}
+  @media (min-width:768px){ .review-grid{grid-template-columns:1fr 1fr;} }
+  .review-card{}
+  .review-top{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .review-avatar{
+    width:44px;height:44px;border-radius:50%;flex:none;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:600;font-size:15px;
+  }
+  .review-name{font-size:15px;font-weight:600;color:var(--ink);}
+  .review-subtext{font-size:13px;color:var(--ink-soft);}
+  .review-stars-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:13.5px;color:var(--ink-soft);}
+  .review-stars{color:#E8A93A;letter-spacing:1px;font-size:14px;}
+  .review-text{font-size:14.5px;line-height:1.55;color:var(--ink);margin:0;}
+  .review-text.is-clamped{
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .review-more-btn{
+    background:none;border:none;padding:0;margin-top:6px;
+    font-size:14px;font-weight:600;color:var(--ink);text-decoration:underline;
+  }
+  .review-show-all-row{display:flex;justify-content:flex-start;margin-top:36px;}
+  .review-show-all-btn{
+    background:var(--bg-dim);border:none;color:var(--ink);
+    border-radius:999px;padding:14px 26px;font-size:14.5px;font-weight:600;
+    transition:background .2s ease;
+  }
+  .review-show-all-btn:hover{background:var(--line);}
+
   /* Showcase slider — matches project grid width */
   .showcase-wrap{margin-top:56px;}
   .showcase{position:relative;width:100%;height:720px;overflow:hidden;border-radius:16px;background:#141414;}
@@ -215,6 +249,17 @@
       <div class="showcase-dots" id="showcase-dots"></div>
   </div>
 </div>
+</div>
+
+<div class="wrap review-section">
+  <div class="review-head">
+    <h2>What clients say</h2>
+    <p>Real reviews from Google — over 70 five-star ratings since 2010.</p>
+  </div>
+  <div class="review-grid" id="review-grid"></div>
+  <div class="review-show-all-row" id="review-show-all-row">
+    <button class="review-show-all-btn" id="review-show-all-btn">Show all reviews</button>
+  </div>
 </div>
 
 <script>
@@ -339,6 +384,70 @@
       timer = setInterval(() => show((current + 1) % showcaseSlides.length), 5000);
     }));
   })();
+
+  // Client reviews — real Google review content, lightly copy-edited for grammar/clarity
+  const reviews = [
+    { name:"No Way", meta:"12 reviews", stars:5, time:"2 months ago", text:"I've dealt with many IT people over the years and Ben is top 2, easily. He actually has the knowledge, is efficient, and then the rarest quality of all: friendly. He took the time to help my over-50 self understand what he was doing, tech-wise, and he actually answered my texts in a timely manner. 5 stars, well deserved." },
+    { name:"Shawn Brozowski", meta:"Local Guide · 9 reviews", stars:5, time:"2 months ago", text:"I mentioned a photo-sharing app that we needed, and Ben created one lickety-split — it's exactly what we need. He's also built a website and logo for us in the past, and anything he's done for us we've been very happy with. Thank you so much, Ben, for your excellent work. We'll be returning for more as time goes on, and we'll be letting our friends know about the work you do for us." },
+    { name:"Kenny SL G", meta:"Local Guide · 21 reviews", stars:5, time:"10 months ago", text:"I had a fantastic experience with Zazen Designs! They created a beautiful website for my business here in Savannah. Ben really understands web design in Savannah and helped me bring my brand to life online. I highly recommend them for any local business looking for professional web design services." },
+    { name:"Morgan Cooper", meta:"2 reviews", stars:5, time:"2 years ago", text:"I had the pleasure of working with Ben from Zazen Designs to create my website, and I'm beyond thrilled with the results. Ben is a true professional with a keen eye for design and detail — he not only made my site look stunning but also optimized it for SEO, making it both functional and attractive. The new site has exceeded my expectations in every way, and feedback from visitors has been overwhelmingly positive. I highly recommend Zazen Designs to anyone looking to take their online presence to the next level. Thank you, Ben, for your exceptional work!" },
+    { name:"Junk Pelicans LLC", meta:"4 reviews", stars:5, time:"Edited 10 months ago", text:"Ben was phenomenal to work with. He was very responsive and handled every need without hesitation. I would definitely recommend him to anyone needing a website built by a professional." },
+    { name:"Aethyta", meta:"1 review", stars:5, time:"a year ago", text:"Ben is a total pro and a delight to work with. He clearly understood the technical aspects of my website and also has a great design sense. He was responsive and communicative throughout the process and made sure I was getting exactly what I needed. Highly recommend!" },
+    { name:"Robles Concrete Services", meta:"4 reviews", stars:5, time:"2 years ago", text:"Ben is so easy to work with and definitely professional. He was patient with me, as a layman, helping me understand what makes a website work well. I'm very happy with my new site and look forward to a continued working relationship. I'd highly recommend Zazen Designs to anyone, without hesitation." },
+    { name:"Kurtis Biggins", meta:"3 reviews", stars:5, time:"a year ago", text:"Zazen Designs made setting up my website so easy. I really appreciate \"Mr. Ben's\" patience — he was ready to get everything done in one session, but it took me about a month, and he never grew impatient with my schedule. Everything he told me to do made it very simple. I'm very pleased with the finished results and highly recommend their services. Thank you, \"Mr. Ben.\"" },
+    { name:"Jason Balliet", meta:"6 reviews", stars:5, time:"10 months ago", text:"If you own a local business here in Savannah, Georgia, we would highly recommend Benjamin from Zazen Designs to develop a WordPress website. Very professional and responsive — would not hesitate to recommend him to anybody needing a new website design here in Savannah." },
+    { name:"Michele Morrissey", meta:"1 review", stars:5, time:"a year ago", text:"Zazen is the best. Ben is incredibly responsive and creative, and strives to understand your needs and industry when designing your website. I interviewed numerous website designers before choosing Zazen, and I'm so happy I did. Ben promised to stick with us along the way, and three years later I can still rely on him to quickly and reasonably update my site as needed. — Michele, Battenkill Glamping Resort." },
+    { name:"Whisker Wash Co", meta:"1 review", stars:5, time:"2 years ago", text:"Major props to Ben for his incredible work on our dog-grooming website! This guy was a breeze to work with — always quick to respond, overflowing with creative ideas, and just a joy to collaborate with. If you're in the market for a web designer who knows their stuff and makes the whole experience enjoyable, Ben's your guy. We couldn't be happier with the end result and wholeheartedly recommend him for top-notch web services. Five stars!" },
+    { name:"Caleb Finch", meta:"Local Guide · 10 reviews · 8 photos", stars:5, time:"Edited 2 years ago", text:"Ben with Zazen Designs exceeded our expectations. He built us a great website, took creative initiative, and we couldn't be happier. He was very attentive and gave great service throughout the whole process. I highly recommend him to any business looking for a contemporary, quality website." },
+  ];
+
+  const avatarColors = ['#1F6E5C','#C4573B','#3F5C63','#B08650','#5C4A6E','#4A5C6E','#6E5C2E','#3F3F5C'];
+
+  function initials(name){
+    return name.split(/\s+/).filter(Boolean).slice(0,2).map(w => w[0].toUpperCase()).join('');
+  }
+
+  const reviewInitialCount = 6;
+  function renderReviews(list){
+    const el = document.getElementById('review-grid');
+    el.innerHTML = list.map((r,i) => {
+      const long = r.text.length > 220;
+      return `
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:${avatarColors[i%avatarColors.length]}">${initials(r.name)}</div>
+            <div>
+              <div class="review-name">${r.name}</div>
+              <div class="review-subtext">${r.meta}</div>
+            </div>
+          </div>
+          <div class="review-stars-row"><span class="review-stars">${'★'.repeat(r.stars)}</span> ${r.time}</div>
+          <p class="review-text${long ? ' is-clamped' : ''}">${r.text}</p>
+          ${long ? `<button class="review-more-btn" type="button">Show more</button>` : ''}
+        </div>
+      `;
+    }).join('');
+
+    el.querySelectorAll('.review-more-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const textEl = btn.previousElementSibling;
+        textEl.classList.remove('is-clamped');
+        btn.remove();
+      });
+    });
+  }
+  renderReviews(reviews.slice(0, reviewInitialCount));
+
+  const reviewShowAllBtn = document.getElementById('review-show-all-btn');
+  const reviewShowAllRow = document.getElementById('review-show-all-row');
+  if (reviews.length <= reviewInitialCount) {
+    reviewShowAllRow.style.display = 'none';
+  } else {
+    reviewShowAllBtn.addEventListener('click', () => {
+      renderReviews(reviews);
+      reviewShowAllRow.style.display = 'none';
+    });
+  }
 </script>
 
 </body>
