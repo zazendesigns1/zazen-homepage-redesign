@@ -98,6 +98,50 @@
   .p-price{font-size:13.5px;margin-top:4px;}
   .p-save{font-size:12.5px;color:var(--accent);font-weight:600;margin-top:2px;}
 
+  /* Full-bleed showcase slider */
+  .showcase{position:relative;width:100%;height:560px;overflow:hidden;background:#141414;margin-top:56px;}
+  .showcase-slide{
+    position:absolute;inset:0;
+    opacity:0;
+    transform:translateY(-100%);
+    transition:transform 0.9s cubic-bezier(0.65,0,0.35,1), opacity 0.9s ease;
+    pointer-events:none;
+  }
+  .showcase-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+  .showcase-slide.is-active{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+    z-index:2;
+  }
+  .showcase-slide.is-prev{
+    transform:translateY(100%);
+    z-index:1;
+  }
+  .showcase::after{
+    content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+    background:linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.75) 100%);
+  }
+  .showcase-copy{position:absolute;left:0;right:0;bottom:36px;z-index:4;color:#fff;padding:0 24px;}
+  @media (min-width:1024px){ .showcase-copy{padding:0 32px;} }
+  @media (min-width:1536px){ .showcase-copy{padding:0 48px;} }
+  .showcase-copy .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;}
+  .showcase-copy h2{font-size:28px;font-weight:600;letter-spacing:-0.02em;margin-bottom:6px;}
+  .showcase-copy p{font-size:15px;font-weight:450;opacity:0.85;margin:0;max-width:520px;}
+  .showcase-dots{display:flex;gap:8px;}
+  .showcase-dots button{
+    width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,0.4);
+    padding:0;transition:background 0.3s ease, transform 0.3s ease;
+  }
+  .showcase-dots button.is-active{background:#fff;transform:scale(1.3);}
+
+  @media (max-width: 980px){
+    .showcase{height:420px;}
+    .showcase-copy{bottom:24px;}
+    .showcase-copy .wrap{flex-direction:column;align-items:flex-start;gap:14px;}
+    .showcase-copy h2{font-size:21px;}
+    .showcase-copy p{font-size:13.5px;}
+  }
   @media (max-width: 980px){
     .quote-pill{display:none;}
     nav{position:relative;background:var(--ink);padding:18px 0;}
@@ -140,6 +184,19 @@
     <h2>Recent projects</h2>
   </div>
   <div class="card-row" id="row1"></div>
+</div>
+
+<div class="showcase" id="showcase">
+  <div id="showcase-slides"></div>
+  <div class="showcase-copy">
+    <div class="wrap">
+      <div>
+        <h2 id="showcase-title"></h2>
+        <p id="showcase-desc"></p>
+      </div>
+      <div class="showcase-dots" id="showcase-dots"></div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -204,6 +261,53 @@
     }).join('');
   }
   renderRow('row1', row1, 0);
+
+  // Full-bleed showcase slider — real business owners we've built for
+  const showcaseSlides = [
+    { img:"assets/zazen-slider-content-creator.webp", title:"Built for creators", desc:"Custom sites that keep pace with a growing content brand — fast, on-camera-ready, and easy to update." },
+    { img:"assets/zazen-slider-plant-shop.webp", title:"Built for local shops", desc:"Storefront sites that turn foot traffic and search into real customers, without the agency price tag." },
+    { img:"assets/zazen-slider-motorcycle-shop.webp", title:"Built for makers", desc:"Sites as custom as the craft — built to match the brand, not a template." },
+    { img:"assets/zazen-slider-boutique.webp", title:"Built for small business owners", desc:"Clean, client-first design that helps independent businesses look — and run — like bigger ones." },
+  ];
+
+  (function initShowcase(){
+    const slidesEl = document.getElementById('showcase-slides');
+    const dotsEl = document.getElementById('showcase-dots');
+    const titleEl = document.getElementById('showcase-title');
+    const descEl = document.getElementById('showcase-desc');
+    if(!slidesEl) return;
+
+    slidesEl.innerHTML = showcaseSlides.map((s,i) =>
+      `<div class="showcase-slide" data-i="${i}"><img src="${s.img}" alt="${s.title}" loading="${i===0 ? 'eager' : 'lazy'}"></div>`
+    ).join('');
+    dotsEl.innerHTML = showcaseSlides.map((s,i) =>
+      `<button data-i="${i}" aria-label="Slide ${i+1}"></button>`
+    ).join('');
+
+    const slideEls = [...slidesEl.querySelectorAll('.showcase-slide')];
+    const dotEls = [...dotsEl.querySelectorAll('button')];
+    let current = 0;
+
+    function show(i){
+      slideEls.forEach((el, idx) => {
+        el.classList.remove('is-active','is-prev');
+        if(idx === i) el.classList.add('is-active');
+        else if(idx === current) el.classList.add('is-prev');
+      });
+      dotEls.forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+      titleEl.textContent = showcaseSlides[i].title;
+      descEl.textContent = showcaseSlides[i].desc;
+      current = i;
+    }
+    show(0);
+
+    let timer = setInterval(() => show((current + 1) % showcaseSlides.length), 2000);
+    dotEls.forEach(d => d.addEventListener('click', () => {
+      clearInterval(timer);
+      show(parseInt(d.dataset.i, 10));
+      timer = setInterval(() => show((current + 1) % showcaseSlides.length), 2000);
+    }));
+  })();
 </script>
 
 </body>
