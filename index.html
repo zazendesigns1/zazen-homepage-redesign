@@ -46,11 +46,11 @@
   .hero video.hero-bg{width:100%;height:100%;object-fit:cover;display:block;}
   .hero::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.82) 100%);
+    background:linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.62) 35%, rgba(0,0,0,0.62) 65%, rgba(0,0,0,0.9) 100%);
   }
   .hero-copy{position:absolute;left:0;right:0;top:38%;text-align:center;color:#fff;z-index:10;padding:0 24px;}
-  .hero-copy h1{font-size:48px;color:#fff;margin-bottom:14px;}
-  .hero-copy p{font-size:16px;font-weight:500;opacity:0.9;margin:0;}
+  .hero-copy h1{font-family:'Instrument Sans',sans-serif;font-weight:550;font-size:52px;line-height:56px;letter-spacing:-1.04px;color:#fff;margin-bottom:14px;}
+  .hero-copy p{font-family:'Instrument Sans',sans-serif;font-weight:450;font-size:18px;line-height:24px;letter-spacing:-0.16px;opacity:0.9;margin:0;}
 
   /* Rows */
   .row-section{padding-top:44px;padding-bottom:8px;}
@@ -86,14 +86,13 @@
     display:flex;align-items:center;gap:5px;
     box-shadow:0 2px 10px rgba(0,0,0,0.12);
   }
-  .p-tag .spark{font-size:12px;line-height:1;}
+  .p-tag .spark{width:14px;height:14px;display:block;}
   .p-heart{
     position:absolute;top:12px;right:12px;z-index:2;
-    width:22px;height:22px;display:flex;align-items:center;justify-content:center;
-    color:#fff;
+    width:24px;height:24px;display:flex;align-items:center;justify-content:center;
     filter:drop-shadow(0 1px 3px rgba(0,0,0,0.45));
   }
-  .p-heart svg{width:20px;height:20px;display:block;}
+  .p-heart svg{width:24px;height:24px;display:block;}
   .p-card h3{font-size:15px;font-weight:600;margin-bottom:4px;}
   .p-meta{font-size:13.5px;color:var(--ink-soft);margin-bottom:2px;}
   .p-meta .star{color:var(--ink);font-weight:600;}
@@ -192,8 +191,8 @@
       const card = `
         <div class="p-card-img" style="${p.img ? '' : `background:${gradients[(i+gradOffset)%gradients.length]}`}">
           ${media}
-          ${p.tag ? `<div class="p-tag"><span class="spark">✦</span> ${p.tag}</div>` : ''}
-          <div class="p-heart"><svg viewBox="0 0 512 512" fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"><path d="M256.1 128.5C226.9 42.9 94 53 94 165.6 94 245.9 175.6 300.4 256.1 384 336.6 300.4 418.2 245.9 418.2 165.6 418.2 53 285.3 42.9 256.1 128.5Z"/></svg></div>
+          ${p.tag ? `<div class="p-tag"><svg class="spark" viewBox="0 0 24 24" fill="none"><path d="M12 2.75C13 8 16 11 21.25 12C16 13 13 16 12 21.25C11 16 8 13 2.75 12C8 11 11 8 12 2.75Z" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/></svg> ${p.tag}</div>` : ''}
+          <div class="p-heart"><svg viewBox="0 0 24 24" fill="rgba(0,0,0,0.18)"><path d="M12.7119 4.05957C14.5394 2.20595 16.6149 1.73525 18.3848 2.12988C20.1794 2.53016 21.7541 3.84033 22.5156 5.73926C23.9699 9.36613 22.5382 15.771 12 21.8457C1.46176 15.771 0.0301221 9.36612 1.48438 5.73926C2.24593 3.84032 3.82061 2.53016 5.61523 2.12988C7.38514 1.73525 9.4606 2.20595 11.2881 4.05957L12 4.78223L12.7119 4.05957Z" stroke="#fff" stroke-width="2"/></svg></div>
         </div>
         <h3>${p.name}</h3>
         <div class="p-meta"><span class="star">${starOrNew(p.rating)}</span> &nbsp;${p.beds}</div>
