@@ -15,18 +15,23 @@
     --bg-dim:#F7F7F5;
     --line:#EAEAE6;
     --accent:#1F6E5C;
-    --maxw:1320px;
+    --maxw:1832px;
   }
   *{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Instrument Sans',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;}
   h1,h2{font-family:'Instrument Sans',sans-serif;font-weight:800;letter-spacing:-0.02em;margin:0;}
   a{color:inherit;text-decoration:none;}
   button{font-family:'Instrument Sans',sans-serif;cursor:pointer;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+  /* Padding scale copied from wander.com: 24px mobile, 32px at 1024px+, 48px at 1536px+ */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  @media (min-width:1024px){ .wrap{padding:0 32px;} }
+  @media (min-width:1536px){ .wrap{padding:0 48px;} }
 
   /* Nav */
   nav{position:absolute;top:0;left:0;right:0;z-index:20;padding:26px 0;}
-  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  @media (min-width:1024px){ .nav-inner{padding:0 32px;} }
+  @media (min-width:1536px){ .nav-inner{padding:0 48px;} }
   .logo{display:flex;align-items:center;gap:9px;font-size:19px;font-weight:800;color:#fff;letter-spacing:-0.02em;}
   .logo .mark{width:30px;height:30px;border:1.5px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;}
   .quote-pill{display:flex;align-items:center;background:#fff;border-radius:999px;padding:6px;box-shadow:0 4px 24px rgba(0,0,0,0.18);font-size:14px;}
@@ -51,19 +56,17 @@
   .row-section{padding-top:44px;padding-bottom:8px;}
   .row-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
   .row-head h2{font-family:'Instrument Sans',sans-serif;font-weight:550;font-size:16px;line-height:20px;}
+  /* Column breakpoints copied from wander.com's card row: 1 → 4 (1024px) → 5 (1280px) */
   .card-row{
     display:grid;
-    grid-template-columns:repeat(1, 1fr); /* phone: one box per row */
+    grid-template-columns:repeat(1, 1fr); /* phone + tablet: one box per row */
     gap:20px;
   }
-  @media (min-width:640px){
-    .card-row{grid-template-columns:repeat(2, 1fr);} /* small tablet */
-  }
-  @media (min-width:900px){
-    .card-row{grid-template-columns:repeat(3, 1fr);} /* iPad */
+  @media (min-width:1024px){
+    .card-row{grid-template-columns:repeat(4, 1fr);}
   }
   @media (min-width:1280px){
-    .card-row{grid-template-columns:repeat(5, 1fr);} /* desktop: five across */
+    .card-row{grid-template-columns:repeat(5, 1fr);}
   }
   .p-card{width:100%;}
   .p-card-img{
@@ -104,8 +107,6 @@
     .hero-copy{top:32%;}
     .hero-copy h1{font-size:30px;}
     .hero-copy p{font-size:14px;}
-    .wrap{padding:0 20px;}
-    .nav-inner{padding:0 20px;}
   }
 </style>
 </head>
