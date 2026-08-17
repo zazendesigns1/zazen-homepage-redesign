@@ -104,7 +104,7 @@
     position:absolute;inset:0;
     opacity:0;
     transform:translateY(-100%);
-    transition:transform 0.9s cubic-bezier(0.65,0,0.35,1), opacity 0.9s ease;
+    transition:transform 1.3s cubic-bezier(0.65,0,0.35,1), opacity 1.3s ease;
     pointer-events:none;
   }
   .showcase-slide img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -201,26 +201,26 @@
 
 <script>
   const row1 = [
-    { name:"Robles Concrete — Pricing Calculator", rating:"New", beds:"React/Next.js · Quote automation", price:"Custom web app", save:null, tag:null, img:"assets/robles-concrete-pricing-calculator.webp" },
-    { name:"Souzou Cam", rating:"New", beds:"B2B field service app", price:"$49/mo team plan", save:null, tag:null, img:"assets/souzou-cam.webp", link:"https://play.google.com/store/apps/details?id=work.sitesnap.app" },
-    { name:"Altamont PT", rating:5.0, beds:"Physical therapy · Custom build", price:"5-week turnaround", save:null, tag:null, img:"assets/altamont-pt.webp", link:"https://altamontphysicaltherapy.com/" },
-    { name:"Hunter Tile & Construction", rating:5.0, beds:"Tiling · WordPress + Local SEO", price:"#1 for \"tiling contractor OKC\"", save:null, tag:null, img:"assets/hunter-tile-construction.webp", link:"https://huntertileconstruction.com/" },
-    { name:"Dinosaw", rating:5.0, beds:"E-commerce · Tooling catalog", price:"6-week turnaround", save:"~$900 less than agency rate", tag:null, img:"assets/dinosaw.webp", link:"https://dinosaw.com/" },
     { name:"Benjamin's Mobile Detailing", rating:5.0, beds:"Auto detailing · Custom build", price:"3-week turnaround", save:null, tag:null, img:"assets/benjamins-mobile-detailing.webp", link:"https://benjaminsmobiledetailing.com/" },
-    { name:"Tattwic Timetable App", rating:"New", beds:"Mobile app · Wellness/spiritual tech", price:"iOS + Android", save:null, tag:null, img:"assets/tattwic-timetable-app.webp", link:"https://play.google.com/store/apps/details?id=com.zazendesigns.tattwapro" },
-    { name:"Adtech Motors", rating:4.8, beds:"Automotive · Custom build", price:"6-week turnaround", save:null, tag:"Featured", img:"assets/adtech-motors.webp", link:"https://adtechmotors.com/" },
-    { name:"Holistica Wellness", rating:5.0, beds:"Wellness · Custom build", price:"4-week turnaround", save:"~$600 less than agency rate", tag:null, img:"assets/holistica-wellness.webp", link:"https://holisticabydiana.com/" },
-    { name:"Gnostic Society", rating:5.0, beds:"Educational · WordPress build", price:"4-week turnaround", save:null, tag:"Featured", img:"assets/gnostic-society.webp", link:"https://savannahgnosis.com/" },
-    { name:"Custom Booking Application", rating:"New", beds:"Next.js · Booking + Google Sheets", price:"Custom web app", save:null, tag:null, img:"assets/custom-booking-application.webp", link:"https://detailing-form.vercel.app/" },
-    { name:"Greeson's Fencing", rating:4.9, beds:"Fencing · WordPress build", price:"4-week turnaround", save:null, tag:null, img:"assets/greesons-fencing.webp", link:"https://greesonsfencing.com/" },
-    { name:"Robles Concrete", rating:4.9, beds:"Concrete + epoxy flooring · WordPress build", price:"4-week turnaround", save:null, tag:null, img:"assets/robles-concrete.webp", link:"https://roblesconcreteservices.com/" },
+    { name:"Altamont PT", rating:5.0, beds:"Physical therapy · Custom build", price:"5-week turnaround", save:null, tag:null, img:"assets/altamont-pt.webp", link:"https://altamontphysicaltherapy.com/" },
     { name:"First Construction Corp", rating:4.8, beds:"Roofing · WordPress build", price:"4-week turnaround", save:null, tag:null, img:"assets/first-construction-corp.webp", link:"https://first.zazendesigns.website/" },
     { name:"Garage Door Resources", rating:4.9, beds:"Garage doors · WordPress build", price:"4-week turnaround", save:null, tag:null, img:"assets/garage-door-resources.webp", link:"https://garagedoorresources.com/" },
-    { name:"Steel Rising", rating:5.0, beds:"Industrial · Custom build", price:"5-week turnaround", save:"~$800 less than agency rate", tag:"Featured", img:"assets/steel-rising.webp", link:"https://steelrising.us/" },
-    { name:"903 Truck Beds", rating:4.9, beds:"Manufacturing · Custom build", price:"5-week turnaround", save:null, tag:"Featured", img:"assets/903-truck-beds.webp", link:"https://903truckbeds.com/" },
-    { name:"Total Wireless Data", rating:4.8, beds:"B2B wireless hardware · Catalog build", price:"5-week turnaround", save:"~$650 less than agency rate", tag:null, img:"assets/total-wireless-data.webp", link:"https://totalwirelessdata.com/" },
     { name:"Packeasy Rentals", rating:5.0, beds:"Local SEO + Stripe checkout", price:"WordPress + Next.js build", save:"~$1,200 less than agency rate", tag:"Featured", img:"assets/packeasy-rentals.webp", link:"https://packeasyrentals.com/" },
+    { name:"Custom Booking Application", rating:"New", beds:"Next.js · Booking + Google Sheets", price:"Custom web app", save:null, tag:null, img:"assets/custom-booking-application.webp", link:"https://detailing-form.vercel.app/" },
+    { name:"903 Truck Beds", rating:4.9, beds:"Manufacturing · Custom build", price:"5-week turnaround", save:null, tag:"Featured", img:"assets/903-truck-beds.webp", link:"https://903truckbeds.com/" },
+    { name:"Dinosaw", rating:5.0, beds:"E-commerce · Tooling catalog", price:"6-week turnaround", save:"~$900 less than agency rate", tag:null, img:"assets/dinosaw.webp", link:"https://dinosaw.com/" },
+    { name:"Robles Concrete — Pricing Calculator", rating:"New", beds:"React/Next.js · Quote automation", price:"Custom web app", save:null, tag:null, img:"assets/robles-concrete-pricing-calculator.webp" },
+    { name:"Souzou Cam", rating:"New", beds:"B2B field service app", price:"$49/mo team plan", save:null, tag:null, img:"assets/souzou-cam.webp", link:"https://play.google.com/store/apps/details?id=work.sitesnap.app" },
+    { name:"Greeson's Fencing", rating:4.9, beds:"Fencing · WordPress build", price:"4-week turnaround", save:null, tag:null, img:"assets/greesons-fencing.webp", link:"https://greesonsfencing.com/" },
+    { name:"Tattwic Timetable App", rating:"New", beds:"Mobile app · Wellness/spiritual tech", price:"iOS + Android", save:null, tag:null, img:"assets/tattwic-timetable-app.webp", link:"https://play.google.com/store/apps/details?id=com.zazendesigns.tattwapro" },
+    { name:"Total Wireless Data", rating:4.8, beds:"B2B wireless hardware · Catalog build", price:"5-week turnaround", save:"~$650 less than agency rate", tag:null, img:"assets/total-wireless-data.webp", link:"https://totalwirelessdata.com/" },
     { name:"H&H Construction", rating:5.0, beds:"Remodeling · WordPress build", price:"5-week turnaround", save:"~$700 less than agency rate", tag:null, img:"assets/hh-construction.webp", link:"https://hhremodelconstruction.com/" },
+    { name:"Hunter Tile & Construction", rating:5.0, beds:"Tiling · WordPress + Local SEO", price:"#1 for \"tiling contractor OKC\"", save:null, tag:null, img:"assets/hunter-tile-construction.webp", link:"https://huntertileconstruction.com/" },
+    { name:"Steel Rising", rating:5.0, beds:"Industrial · Custom build", price:"5-week turnaround", save:"~$800 less than agency rate", tag:"Featured", img:"assets/steel-rising.webp", link:"https://steelrising.us/" },
+    { name:"Gnostic Society", rating:5.0, beds:"Educational · WordPress build", price:"4-week turnaround", save:null, tag:"Featured", img:"assets/gnostic-society.webp", link:"https://savannahgnosis.com/" },
+    { name:"Robles Concrete", rating:4.9, beds:"Concrete + epoxy flooring · WordPress build", price:"4-week turnaround", save:null, tag:null, img:"assets/robles-concrete.webp", link:"https://roblesconcreteservices.com/" },
+    { name:"Adtech Motors", rating:4.8, beds:"Automotive · Custom build", price:"6-week turnaround", save:null, tag:"Featured", img:"assets/adtech-motors.webp", link:"https://adtechmotors.com/" },
+    { name:"Holistica Wellness", rating:5.0, beds:"Wellness · Custom build", price:"4-week turnaround", save:"~$600 less than agency rate", tag:null, img:"assets/holistica-wellness.webp", link:"https://holisticabydiana.com/" },
 
   ];
 
@@ -302,11 +302,11 @@
     }
     show(0);
 
-    let timer = setInterval(() => show((current + 1) % showcaseSlides.length), 2000);
+    let timer = setInterval(() => show((current + 1) % showcaseSlides.length), 5000);
     dotEls.forEach(d => d.addEventListener('click', () => {
       clearInterval(timer);
       show(parseInt(d.dataset.i, 10));
-      timer = setInterval(() => show((current + 1) % showcaseSlides.length), 2000);
+      timer = setInterval(() => show((current + 1) % showcaseSlides.length), 5000);
     }));
   })();
 </script>
